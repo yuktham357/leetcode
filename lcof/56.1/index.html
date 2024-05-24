@@ -80437,7 +80437,7 @@
 <p>由于数组中除了两个数字之外，其他数字都出现了两次，因此对数组中的所有数字进行异或运算，得到的结果即为两个只出现一次的数字的异或结果。</p>
 <p>由于这两个数字不相等，因此异或结果中至少存在一位为 $1$。我们通过 <code>lowbit</code> 运算找到异或结果中最低位的 $1$，并将数组中的所有数字按照该位是否为 $1$ 分为两组，这样两个只出现一次的数字就被分到了不同的组中。</p>
 <p>对两个组分别进行异或运算，即可得到两个只出现一次的数字。</p>
-<p>时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组长度。</p>
+<p>时间复杂度 $O(n)$，其中 $n$ 为数组长度。空间复杂度 $O(1)$。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:7"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label><label for="__tabbed_1_6">JavaScript</label><label for="__tabbed_1_7">C#</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">

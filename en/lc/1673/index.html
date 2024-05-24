@@ -41975,9 +41975,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#solution-1" class="md-nav__link">
+  <a href="#solution-1-stack" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 1
+      Solution 1: Stack
     </span>
   </a>
   
@@ -75868,7 +75868,10 @@
 <h2 id="solutions">Solutions</h2>
 <!-- solution:start -->
 
-<h3 id="solution-1">Solution 1</h3>
+<h3 id="solution-1-stack">Solution 1: Stack</h3>
+<p>We traverse the array <code>nums</code> from left to right, maintaining a stack <code>stk</code>. During the traversal, if the current element <code>nums[i]</code> is less than the top element of the stack, and the number of elements in the stack plus $n-i$ is greater than $k$, then we pop the top element of the stack until the above condition is no longer satisfied. At this point, if the number of elements in the stack is less than $k$, then we push the current element into the stack.</p>
+<p>After the traversal, the elements in the stack are the answer.</p>
+<p>The time complexity is $O(n)$, and the space complexity is $O(k)$. Where $n$ is the length of the array <code>nums</code>.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -76012,7 +76015,7 @@
 <span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">stk</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[];</span>
 <span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">nums</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
 <span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">n</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="nx">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nx">stk</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">stk</span><span class="p">.</span><span class="nx">at</span><span class="p">(</span><span class="o">-</span><span class="mf">1</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nx">nums</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">stk</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nx">k</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nx">stk</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">stk</span><span class="p">.</span><span class="nx">at</span><span class="p">(</span><span class="o">-</span><span class="mf">1</span><span class="p">)</span><span class="o">!</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nx">nums</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">stk</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nx">k</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">            </span><span class="nx">stk</span><span class="p">.</span><span class="nx">pop</span><span class="p">();</span>
 <span class="w">        </span><span class="p">}</span>
 <span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">stk</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">k</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>

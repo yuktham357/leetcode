@@ -74709,15 +74709,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      方法二
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -80530,35 +80521,6 @@
 <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">Substring</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">Substring</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div></td></tr></table></div>
-</div>
-</div>
-</div>
-<!-- solution:end -->
-
-<!-- solution:start-->
-
-<h3 id="_4">方法二</h3>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">C++</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Solution</span><span class="w"> </span><span class="p">{</span>
-<span class="k">public</span><span class="o">:</span>
-<span class="w">    </span><span class="n">string</span><span class="w"> </span><span class="n">reverseLeftWords</span><span class="p">(</span><span class="n">string</span><span class="w"> </span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">reverse</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">begin</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">n</span><span class="p">);</span>
-<span class="w">        </span><span class="n">reverse</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">begin</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
-<span class="w">        </span><span class="n">reverse</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">s</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">};</span>
 </code></pre></div></td></tr></table></div>
 </div>
 </div>
