@@ -80860,19 +80860,19 @@
 <span class="normal">18</span>
 <span class="normal">19</span>
 <span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">maxVowels</span><span class="p">(</span><span class="nx">s</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="nx">k</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">isVowel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">c</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;e&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;i&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;o&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;u&#39;</span><span class="p">].</span><span class="nx">includes</span><span class="p">(</span><span class="nx">c</span><span class="p">);</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">vowels</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Set</span><span class="p">([</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;e&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;i&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;o&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;u&#39;</span><span class="p">]);</span>
 <span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">cnt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
 <span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">k</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">isVowel</span><span class="p">(</span><span class="nx">s</span><span class="p">[</span><span class="nx">i</span><span class="p">]))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">vowels</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="nx">s</span><span class="p">[</span><span class="nx">i</span><span class="p">]))</span><span class="w"> </span><span class="p">{</span>
 <span class="w">            </span><span class="nx">cnt</span><span class="o">++</span><span class="p">;</span>
 <span class="w">        </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">ans</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">cnt</span><span class="p">;</span>
 <span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">k</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">s</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">isVowel</span><span class="p">(</span><span class="nx">s</span><span class="p">[</span><span class="nx">i</span><span class="p">]))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">vowels</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="nx">s</span><span class="p">[</span><span class="nx">i</span><span class="p">]))</span><span class="w"> </span><span class="p">{</span>
 <span class="w">            </span><span class="nx">cnt</span><span class="o">++</span><span class="p">;</span>
 <span class="w">        </span><span class="p">}</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">isVowel</span><span class="p">(</span><span class="nx">s</span><span class="p">[</span><span class="nx">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">k</span><span class="p">]))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">vowels</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="nx">s</span><span class="p">[</span><span class="nx">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">k</span><span class="p">]))</span><span class="w"> </span><span class="p">{</span>
 <span class="w">            </span><span class="nx">cnt</span><span class="o">--</span><span class="p">;</span>
 <span class="w">        </span><span class="p">}</span>
 <span class="w">        </span><span class="nx">ans</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">max</span><span class="p">(</span><span class="nx">ans</span><span class="p">,</span><span class="w"> </span><span class="nx">cnt</span><span class="p">);</span>
@@ -80974,6 +80974,11 @@
     
     <nav>
       
+        <a href="https://github.com/rain84" class="md-author" title="@rain84">
+          
+          <img src="https://avatars.githubusercontent.com/u/1732547?v=4&size=72" alt="rain84">
+        </a>
+      
         <a href="https://github.com/yanglbme" class="md-author" title="@yanglbme">
           
           <img src="https://avatars.githubusercontent.com/u/21008209?v=4&size=72" alt="yanglbme">
@@ -80989,12 +80994,13 @@
           <img src="https://avatars.githubusercontent.com/u/99040799?v=4&size=72" alt="Qiu-IT">
         </a>
       
-        <a href="https://github.com/zhaocchen" class="md-author" title="@zhaocchen">
-          
-          <img src="https://avatars.githubusercontent.com/u/22462923?v=4&size=72" alt="zhaocchen">
-        </a>
       
       
+        
+          <a href="https://github.com/doocs/leetcode/blob/main/solution/1400-1499/1456.Maximum%20Number%20of%20Vowels%20in%20a%20Substring%20of%20Given%20Length/README.md" class="md-author md-author--more">
+            +1
+          </a>
+        
       
     </nav>
   </span>
