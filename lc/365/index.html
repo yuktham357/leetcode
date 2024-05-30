@@ -80712,7 +80712,7 @@
 <!-- solution:start -->
 
 <h3 id="dfs">方法一：DFS</h3>
-<p>我们不妨记 $jug1Capacity$ 为 $x$, $jug2Capacity$ 为 $y$, $targetCapacity$ 为 $z$。</p>
+<p>我们不妨记 $\text{jug1Capacity}$ 为 $x$, $\text{jug2Capacity}$ 为 $y$, $\text{targetCapacity}$ 为 $z$。</p>
 <p>接下来，我们设计一个函数 $dfs(i, j)$，表示当前 $jug1$ 中有 $i$ 升水，$jug2$ 中有 $j$ 升水，是否可以得到 $z$ 升水。</p>
 <p>函数 $dfs(i, j)$ 的执行过程如下：</p>
 <ul>
@@ -80722,7 +80722,7 @@
 <li>如果我们将 $jug1$ 中的水倒入 $jug2$，或者将 $jug2$ 中的水倒入 $jug1$，可以得到 $z$ 升水，返回 $true$。</li>
 </ul>
 <p>答案即为 $dfs(0, 0)$。</p>
-<p>时间复杂度 $O(x + y)$，空间复杂度 $O(x + y)$。其中 $x$ 和 $y$ 分别为 $jug1Capacity$ 和 $jug2Capacity$ 的大小。</p>
+<p>时间复杂度 $O(x + y)$，空间复杂度 $O(x + y)$。其中 $x$ 和 $y$ 分别为 $\text{jug1Capacity}$ 和 $\text{jug2Capacity}$。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
