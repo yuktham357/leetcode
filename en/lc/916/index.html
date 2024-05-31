@@ -26098,9 +26098,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#solution-1" class="md-nav__link">
+  <a href="#solution-1-counting" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 1
+      Solution 1: Counting
     </span>
   </a>
   
@@ -76098,7 +76098,10 @@
 <h2 id="solutions">Solutions</h2>
 <!-- solution:start -->
 
-<h3 id="solution-1">Solution 1</h3>
+<h3 id="solution-1-counting">Solution 1: Counting</h3>
+<p>Traverse each word <code>b</code> in <code>words2</code>, count the maximum occurrence of each letter, and record it as <code>cnt</code>.</p>
+<p>Then traverse each word <code>a</code> in <code>words1</code>, count the occurrence of each letter, and record it as <code>t</code>. If the occurrence of each letter in <code>cnt</code> is not greater than the occurrence in <code>t</code>, then <code>a</code> is a universal word, and add it to the answer.</p>
+<p>The time complexity is $O(L)$, where $L$ is the sum of the lengths of all words in <code>words1</code> and <code>words2</code>.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">

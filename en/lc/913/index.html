@@ -26035,9 +26035,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#solution-1" class="md-nav__link">
+  <a href="#solution-1-greatest-common-divisor" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 1
+      Solution 1: Greatest Common Divisor
     </span>
   </a>
   
@@ -76132,7 +76132,10 @@
 <h2 id="solutions">Solutions</h2>
 <!-- solution:start -->
 
-<h3 id="solution-1">Solution 1</h3>
+<h3 id="solution-1-greatest-common-divisor">Solution 1: Greatest Common Divisor</h3>
+<p>First, we use an array or hash table <code>cnt</code> to count the occurrence of each number. Only when $X$ is a divisor of the greatest common divisor of all <code>cnt[i]</code>, can it satisfy the problem's requirement.</p>
+<p>Therefore, we find the greatest common divisor $g$ of the occurrence of all numbers, and then check whether it is greater than or equal to $2$.</p>
+<p>The time complexity is $O(n \times \log M)$, and the space complexity is $O(n + \log M)$. Where $n$ and $M$ are the length of the array <code>deck</code> and the maximum value in the array <code>deck</code>, respectively.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
