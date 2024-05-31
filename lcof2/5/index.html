@@ -80680,7 +80680,7 @@
 <p>由于题目限定了字符串中只包含英语的小写字母，因此每个字符串可以用一个 $32$ 位整数表示，该整数的每个二进制位都是 $0$ 或 $1$，分别对应字符串的每个字母是否出现。这样一来，我们判断两个字符串是否含有相同字符，只需要将对应的整数进行按位与运算，即可得到一个新的整数，如果新的整数的二进制表示中的每一位都是 $0$，就说明两个字符串不含有相同的字符。</p>
 <p>具体地，我们用一个长度为 $n$ 的整数数组 $mask$ 表示每个字符串对应的整数，其中第 $i$ 个元素 $mask[i]$ 表示字符串 $words[i]$ 对应的整数。对于任意两个下标 $i$ 和 $j$，如果 $mask[i]$ 和 $mask[j]$ 按位与运算的结果为 $0$，就说明 $words[i]$ 和 $words[j]$ 不包含相同字符。由于需要找到长度乘积的最大值，因此我们可以枚举所有的 $0 \leq i \lt j \lt n$，并计算 $words[i]$ 和 $words[j]$ 的长度乘积，最终得到长度乘积的最大值。</p>
 <p>时间复杂度 $O(n \times (n + |S|))$，空间复杂度 $O(n)$。其中 $n$ 是数组 $words$ 的长度，而 $|S|$ 是字符串的最大长度。</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:6"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label><label for="__tabbed_1_6">Swift</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -80870,6 +80870,54 @@
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 </div>
+<div class="tabbed-block">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+    <span class="kd">func</span> <span class="nf">maxProduct</span><span class="p">(</span><span class="kc">_</span> <span class="n">words</span><span class="p">:</span> <span class="p">[</span><span class="nb">String</span><span class="p">])</span> <span class="p">-&gt;</span> <span class="nb">Int</span> <span class="p">{</span>
+        <span class="kd">let</span> <span class="nv">n</span> <span class="p">=</span> <span class="n">words</span><span class="p">.</span><span class="bp">count</span>
+        <span class="kd">var</span> <span class="nv">masks</span> <span class="p">=</span> <span class="p">[</span><span class="nb">Int</span><span class="p">](</span><span class="n">repeating</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="bp">count</span><span class="p">:</span> <span class="n">n</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mf">0.</span><span class="p">.&lt;</span><span class="n">n</span> <span class="p">{</span>
+            <span class="k">for</span> <span class="n">c</span> <span class="k">in</span> <span class="n">words</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">{</span>
+                <span class="n">masks</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">|=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">c</span><span class="p">.</span><span class="n">asciiValue</span><span class="p">!</span> <span class="o">-</span> <span class="nb">Character</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="p">).</span><span class="n">asciiValue</span><span class="p">!)</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="kd">var</span> <span class="nv">maxProduct</span> <span class="p">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mf">0.</span><span class="p">.&lt;</span><span class="n">n</span> <span class="p">{</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="k">in</span> <span class="n">i</span><span class="o">+</span><span class="mf">1.</span><span class="p">.&lt;</span><span class="n">n</span> <span class="p">{</span>
+                <span class="k">if</span> <span class="n">masks</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&amp;</span> <span class="n">masks</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="p">==</span> <span class="mi">0</span> <span class="p">{</span>
+                    <span class="n">maxProduct</span> <span class="p">=</span> <span class="bp">max</span><span class="p">(</span><span class="n">maxProduct</span><span class="p">,</span> <span class="n">words</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="bp">count</span> <span class="o">*</span> <span class="n">words</span><span class="p">[</span><span class="n">j</span><span class="p">].</span><span class="bp">count</span><span class="p">)</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="n">maxProduct</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+</div>
 </div>
 </div>
 <!-- solution:end -->
@@ -80902,6 +80950,11 @@
 
     
     <nav>
+      
+        <a href="https://github.com/klever34" class="md-author" title="@klever34">
+          
+          <img src="https://avatars.githubusercontent.com/u/12745225?v=4&size=72" alt="klever34">
+        </a>
       
         <a href="https://github.com/yanglbme" class="md-author" title="@yanglbme">
           
