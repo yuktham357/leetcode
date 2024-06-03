@@ -80968,7 +80968,7 @@
 <!-- solution:start-->
 
 <h3 id="_4">方法二</h3>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">TypeScript</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">TypeScript</label><label for="__tabbed_2_2">Swift</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -80995,6 +80995,44 @@
 <span class="w">        </span><span class="nx">ans</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">max</span><span class="p">(</span><span class="nx">ans</span><span class="p">,</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">j</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">1</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">ans</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+    <span class="kd">func</span> <span class="nf">lengthOfLongestSubstring</span><span class="p">(</span><span class="kc">_</span> <span class="n">s</span><span class="p">:</span> <span class="nb">String</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Int</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nv">ss</span> <span class="p">=</span> <span class="nb">Array</span><span class="p">(</span><span class="n">repeating</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="bp">count</span><span class="p">:</span> <span class="mi">128</span><span class="p">)</span>
+        <span class="kd">var</span> <span class="nv">ans</span> <span class="p">=</span> <span class="mi">0</span>
+        <span class="kd">var</span> <span class="nv">j</span> <span class="p">=</span> <span class="n">s</span><span class="p">.</span><span class="n">startIndex</span>
+
+        <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="n">s</span><span class="p">.</span><span class="bp">indices</span> <span class="p">{</span>
+            <span class="kd">let</span> <span class="nv">c</span> <span class="p">=</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+            <span class="k">while</span> <span class="n">ss</span><span class="p">[</span><span class="nb">Int</span><span class="p">(</span><span class="n">c</span><span class="p">.</span><span class="n">asciiValue</span><span class="p">!)]</span> <span class="p">{</span>
+                <span class="n">ss</span><span class="p">[</span><span class="nb">Int</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">j</span><span class="p">].</span><span class="n">asciiValue</span><span class="p">!)]</span> <span class="p">=</span> <span class="kc">false</span>
+                <span class="n">j</span> <span class="p">=</span> <span class="n">s</span><span class="p">.</span><span class="n">index</span><span class="p">(</span><span class="n">after</span><span class="p">:</span> <span class="n">j</span><span class="p">)</span>
+            <span class="p">}</span>
+            <span class="n">ans</span> <span class="p">=</span> <span class="bp">max</span><span class="p">(</span><span class="n">ans</span><span class="p">,</span> <span class="n">s</span><span class="p">.</span><span class="bp">distance</span><span class="p">(</span><span class="n">from</span><span class="p">:</span> <span class="n">j</span><span class="p">,</span> <span class="n">to</span><span class="p">:</span> <span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="n">ss</span><span class="p">[</span><span class="nb">Int</span><span class="p">(</span><span class="n">c</span><span class="p">.</span><span class="n">asciiValue</span><span class="p">!)]</span> <span class="p">=</span> <span class="kc">true</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">ans</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 </div>
@@ -81031,6 +81069,11 @@
     
     <nav>
       
+        <a href="https://github.com/klever34" class="md-author" title="@klever34">
+          
+          <img src="https://avatars.githubusercontent.com/u/12745225?v=4&size=72" alt="klever34">
+        </a>
+      
         <a href="https://github.com/yanglbme" class="md-author" title="@yanglbme">
           
           <img src="https://avatars.githubusercontent.com/u/21008209?v=4&size=72" alt="yanglbme">
@@ -81046,12 +81089,13 @@
           <img src="https://avatars.githubusercontent.com/u/58163275?v=4&size=72" alt="Yousazoe">
         </a>
       
-        <a href="https://github.com/maolonglong" class="md-author" title="@maolonglong">
-          
-          <img src="https://avatars.githubusercontent.com/u/50797868?v=4&size=72" alt="maolonglong">
-        </a>
       
       
+        
+          <a href="https://github.com/doocs/leetcode/blob/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20016.%20%E4%B8%8D%E5%90%AB%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E5%AD%97%E7%AC%A6%E4%B8%B2/README.md" class="md-author md-author--more">
+            +1
+          </a>
+        
       
     </nav>
   </span>

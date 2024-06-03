@@ -80806,7 +80806,7 @@
 <p>因此，我们先用哈希表或数组 $cnt2$ 统计字符串 $p$ 中每个字符出现的次数，然后遍历字符串 $s$，维护一个窗口大小为 $n$ 的滑动窗口，用哈希表或数组 $cnt1$ 统计窗口内每个字符出现的次数，当 $cnt1 = cnt2$ 时，说明窗口内的字符及其个数与字符串 $p$ 相同，我们将窗口的起始索引加入答案数组。</p>
 <p>遍历结束后，返回答案数组。</p>
 <p>时间复杂度 $(m + n \times |\Sigma|)$，空间复杂度 $O(|\Sigma|)$。其中 $m$ 和 $n$ 分别为字符串 $s$ 和 $p$ 的长度；而 $|\Sigma|$ 为字符集的大小，本题中 $|\Sigma|=26$。</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:6"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label><label for="__tabbed_1_6">Swift</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -81049,6 +81049,88 @@
 <span class="w">        </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">ans</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+    <span class="kd">func</span> <span class="nf">findAnagrams</span><span class="p">(</span><span class="kc">_</span> <span class="n">s</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span> <span class="kc">_</span> <span class="n">p</span><span class="p">:</span> <span class="nb">String</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="p">[</span><span class="nb">Int</span><span class="p">]</span> <span class="p">{</span>
+        <span class="kd">let</span> <span class="nv">m</span> <span class="p">=</span> <span class="n">s</span><span class="p">.</span><span class="bp">count</span>
+        <span class="kd">let</span> <span class="nv">n</span> <span class="p">=</span> <span class="n">p</span><span class="p">.</span><span class="bp">count</span>
+        <span class="kd">var</span> <span class="nv">ans</span> <span class="p">=</span> <span class="p">[</span><span class="nb">Int</span><span class="p">]()</span>
+
+        <span class="k">if</span> <span class="n">m</span> <span class="o">&lt;</span> <span class="n">n</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="n">ans</span>
+        <span class="p">}</span>
+
+        <span class="kd">var</span> <span class="nv">cnt1</span> <span class="p">=</span> <span class="nb">Array</span><span class="p">(</span><span class="n">repeating</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="bp">count</span><span class="p">:</span> <span class="mi">26</span><span class="p">)</span>
+        <span class="kd">var</span> <span class="nv">cnt2</span> <span class="p">=</span> <span class="nb">Array</span><span class="p">(</span><span class="n">repeating</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="bp">count</span><span class="p">:</span> <span class="mi">26</span><span class="p">)</span>
+
+        <span class="kd">let</span> <span class="nv">aAsciiValue</span> <span class="p">=</span> <span class="nb">Character</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="p">).</span><span class="n">asciiValue</span><span class="p">!</span>
+
+        <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mf">0.</span><span class="p">.&lt;</span><span class="n">n</span> <span class="p">{</span>
+            <span class="kd">let</span> <span class="nv">sIdx</span> <span class="p">=</span> <span class="nb">Int</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">utf8</span><span class="p">[</span><span class="n">s</span><span class="p">.</span><span class="n">utf8</span><span class="p">.</span><span class="n">index</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">utf8</span><span class="p">.</span><span class="n">startIndex</span><span class="p">,</span> <span class="n">offsetBy</span><span class="p">:</span> <span class="n">i</span><span class="p">)]</span> <span class="o">-</span> <span class="n">aAsciiValue</span><span class="p">)</span>
+            <span class="kd">let</span> <span class="nv">pIdx</span> <span class="p">=</span> <span class="nb">Int</span><span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="n">utf8</span><span class="p">[</span><span class="n">p</span><span class="p">.</span><span class="n">utf8</span><span class="p">.</span><span class="n">index</span><span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="n">utf8</span><span class="p">.</span><span class="n">startIndex</span><span class="p">,</span> <span class="n">offsetBy</span><span class="p">:</span> <span class="n">i</span><span class="p">)]</span> <span class="o">-</span> <span class="n">aAsciiValue</span><span class="p">)</span>
+            <span class="n">cnt1</span><span class="p">[</span><span class="n">sIdx</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="n">cnt2</span><span class="p">[</span><span class="n">pIdx</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="p">}</span>
+
+        <span class="k">if</span> <span class="n">cnt1</span> <span class="p">==</span> <span class="n">cnt2</span> <span class="p">{</span>
+            <span class="n">ans</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="p">}</span>
+
+        <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="n">n</span><span class="p">..&lt;</span><span class="n">m</span> <span class="p">{</span>
+            <span class="kd">let</span> <span class="nv">sIdxNew</span> <span class="p">=</span> <span class="nb">Int</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">utf8</span><span class="p">[</span><span class="n">s</span><span class="p">.</span><span class="n">utf8</span><span class="p">.</span><span class="n">index</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">utf8</span><span class="p">.</span><span class="n">startIndex</span><span class="p">,</span> <span class="n">offsetBy</span><span class="p">:</span> <span class="n">i</span><span class="p">)]</span> <span class="o">-</span> <span class="n">aAsciiValue</span><span class="p">)</span>
+            <span class="kd">let</span> <span class="nv">sIdxOld</span> <span class="p">=</span> <span class="nb">Int</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">utf8</span><span class="p">[</span><span class="n">s</span><span class="p">.</span><span class="n">utf8</span><span class="p">.</span><span class="n">index</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">utf8</span><span class="p">.</span><span class="n">startIndex</span><span class="p">,</span> <span class="n">offsetBy</span><span class="p">:</span> <span class="n">i</span> <span class="o">-</span> <span class="n">n</span><span class="p">)]</span> <span class="o">-</span> <span class="n">aAsciiValue</span><span class="p">)</span>
+            <span class="n">cnt1</span><span class="p">[</span><span class="n">sIdxNew</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="n">cnt1</span><span class="p">[</span><span class="n">sIdxOld</span><span class="p">]</span> <span class="o">-=</span> <span class="mi">1</span>
+
+            <span class="k">if</span> <span class="n">cnt1</span> <span class="p">==</span> <span class="n">cnt2</span> <span class="p">{</span>
+                <span class="n">ans</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="n">ans</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 </div>
@@ -81511,6 +81593,11 @@
 
     
     <nav>
+      
+        <a href="https://github.com/klever34" class="md-author" title="@klever34">
+          
+          <img src="https://avatars.githubusercontent.com/u/12745225?v=4&size=72" alt="klever34">
+        </a>
       
         <a href="https://github.com/yanglbme" class="md-author" title="@yanglbme">
           
